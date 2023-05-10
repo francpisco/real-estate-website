@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Here is some big title.</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam illum repellendus unde a quibusdam quod! Eaque voluptatem exercitationem nulla sit!</p>
+    {% for article in articles %}
+        <div class="card" style="width: 18rem;">
+            {% if article.image_file %}
+            <img src="..." class="card-img-top" alt="...">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ article.title }}</h5>
+              <p class="card-text">{{ article.content }}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+    {% endfor %}
+{% endblock content %}
