@@ -65,11 +65,11 @@ def account():
 
 
 @users.route("/user/<string:username>")
-def user_posts(username):
+def user_articles(username):
     page = request.args.get("page", 1, type=int)
     user = User.query.filter_by(username=username).first_or_404()
-    posts = Article.query.filter_by(author=user).order_by(Article.date_posted.desc()).paginate(page=page, per_page=5)
-    return render_template("user_posts.html", posts=posts, user=user)
+    articles = Article.query.filter_by(author=user).order_by(Article.date_posted.desc()).paginate(page=page, per_page=5)
+    return render_template("user_articles.html", articles=articles, user=user)
 
 
 @users.route("/reset_password", methods=["GET", "POST"])
