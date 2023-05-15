@@ -1,9 +1,11 @@
 import os
 import secrets
+import smtplib
 from PIL import Image
 from flask import url_for, current_app
 from flask_mail import Message
 from real_estate_website import mail
+from real_estate_website.config import Config
 
 
 def save_picture(form_picture):
@@ -20,7 +22,7 @@ def save_picture(form_picture):
     return picture_fn
 
 
-def sent_reset_email(user):
+def send_reset_email(user):
     token = user.get_reset_token()
     msg = Message("Password Reset Request",
                   sender="noreply@demo.com",
@@ -31,3 +33,11 @@ def sent_reset_email(user):
 If you did not make this request then simply ignore this email and no changes will be made.
 """
     mail.send(msg)
+
+def send_mail(name, email, phone, subject, body):
+    formatted_subject = f"REWebsite - {name}, {email}, {phone}, {subject}"
+    msg = Message(subject=formatted_subject, sender="fmpapt-noreply@gmail.com", recipients=["fmpapt@gmail.com"])
+    msg.body = body
+    mail.send(msg)
+
+    

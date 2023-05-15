@@ -5,7 +5,7 @@ from real_estate_website.models import User, Article
 from real_estate_website.users.forms import (LoginForm, RegistrationForm,
                                    RequestResetForm, ResetPasswordForm,
                                    UpdateAccountForm)
-from real_estate_website.users.utils import sent_reset_email
+from real_estate_website.users.utils import send_reset_email
 
 users = Blueprint("users", __name__)
 
@@ -79,7 +79,7 @@ def reset_request():
     form = RequestResetForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-        sent_reset_email(user)
+        send_reset_email(user)
         flash("An email has been sent with instructions to reset your password.", "info")
         return redirect(url_for("users.login"))
     return render_template("reset_request.html", title="Reset Password", form=form)

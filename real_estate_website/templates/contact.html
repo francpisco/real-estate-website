@@ -5,68 +5,23 @@
         {{ form.hidden_tag() }}
         <div class="mb-3">
             {{ form.name.label(class="form-label") }}
-            {% if form.name.errors %}
-                {{ form.name(class="form-control")}}
-                <div class="invalid-feedback">
-                    {% for error in form.title.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
-            {% else %}
-                {{ form.name(class="form-control", placeholder="John Smith")}}
-            {% endif %}
+            {{ form.name(class="form-control", placeholder="John Smith")}}
         </div>
         <div class="mb-3">
             {{ form.email.label(class="form-label") }}
-            {% if form.email.errors %}
-                {{ form.email(class="form-control")}}
-                <div class="invalid-feedback">
-                    {% for error in form.title.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
-            {% else %}
-                {{ form.email(class="form-control", placeholder="j.smith@mail.com")}}
-            {% endif %}
+            {{ form.email(class="form-control", placeholder="j.smith@mail.com")}}
+        </div>
+        <div class="mb-3">
+            {{ form.phone.label(class="form-label") }}
+            {{ form.phone(class="form-control")}}
         </div>
         <div class="mb-3">
             {{ form.subject.label(class="form-label") }}
-            {% if form.phone.errors %}
-                {{ form.phone(class="form-control")}}
-                <div class="invalid-feedback">
-                    {% for error in form.title.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
-            {% else %}
-                {{ form.phone(class="form-control", placeholder="999 999 999")}}
-            {% endif %}
-        </div>
-        <div class="mb-3">
-            {{ form.subject.label(class="form-label") }}
-            {% if form.subject.errors %}
-                {{ form.subject(class="form-control")}}
-                <div class="invalid-feedback">
-                    {% for error in form.title.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
-            {% else %}
-                {{ form.subject(class="form-control", placeholder="About...")}}
-            {% endif %}
+            {{ form.subject(class="form-control")}}
         </div>
         <div class="mb-3">
             {{ form.content.label(class="form-label") }}
-            {% if form.content.errors %}
-                {{ form.content(class="form-control")}}
-                <div class="invalid-feedback">
-                    {% for error in form.title.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
-            {% else %}
-                {{ form.content(class="form-control")}}
-            {% endif %}
+            {{ form.content(class="form-control")}}
         </div>
         <div>
             {{ form.submit(class="btn btn-primary") }}
